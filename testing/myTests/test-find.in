@@ -1,0 +1,52 @@
+# Check that we can check out a previous version.
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "version 1 of wug.txt"
+<<<
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> commit "version 2 of wug.txt"
+<<<
+= wug.txt notwug.txt
++ test.txt test.txt
+> add test.txt
+<<<
+> commit "add test"
+<<<
+# Each ${HEADER} captures its commit UID.
+D UID "[a-f0-9]+"
+D HEADER "commit (${UID})"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+> log
+===
+${HEADER}
+${DATE}
+add test
+
+===
+${HEADER}
+${DATE}
+version 2 of wug.txt
+
+===
+${HEADER}
+${DATE}
+version 1 of wug.txt
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*
+# UID of latest commit
+D UID1 "${1}"
+# UID of version 2 commit
+D UID2 "${2}"
+> find "add test"
+${UID1}
+<<<*

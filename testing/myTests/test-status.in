@@ -1,0 +1,117 @@
+# A simple test of adding, committing, modifying, and checking out.
+D Branch "=== Branches ==="
+D Staged "=== Staged Files ==="
+D Removed "=== Removed Files ==="
+D Mod "=== Modifications Not Staged For Commit ==="
+D Untrack "=== Untracked Files ==="
+D Master "*master"
+D wug "wug.txt"
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
++ notwug.txt notwug.txt
+> add notwug.txt
+<<<
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+notwug.txt
+wug.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+> commit "wug and notwug"
+<<<
+> rm "wug.txt"
+<<<
++ test.txt test.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+wug.txt
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+test.txt
+
+<<<
++ wug.txt wug.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+wug.txt
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+test.txt
+wug.txt
+
+<<<
+> add test.txt
+<<<
+> add wug.txt
+<<<
+> commit "everything"
+<<<
+> rm wug.txt
+<<<
+> commit "remove"
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
++ wug.txt notwug.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+wug.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+wug.txt (modified)
+
+=== Untracked Files ===
+
+<<<
+- wug.txt
++ hello.txt test.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+wug.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+wug.txt (deleted)
+
+=== Untracked Files ===
+hello.txt
+
+<<<
+> commit "everything"
+<<<

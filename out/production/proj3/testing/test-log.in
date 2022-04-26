@@ -1,0 +1,33 @@
+# A simple test of adding, committing, modifying, and checking out.
+D COMMIT_HEAD "commit [a-f0-9]+"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
++ notwug.txt notwug.txt
+> add notwug.txt
+<<<
+> commit "added wug/notwug"
+<<<
+> rm notwug.txt
+<<<
+> commit "remove notwug"
+<<<
+> log
+===
+${COMMIT_HEAD}
+${DATE}
+remove notwug
+
+===
+${COMMIT_HEAD}
+${DATE}
+added wug/notwug
+
+===
+${COMMIT_HEAD}
+${DATE}
+initial commit
+<<<*

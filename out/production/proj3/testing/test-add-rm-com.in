@@ -1,0 +1,18 @@
+# A simple test of adding, committing, modifying, and checking out.
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
++ notwug.txt notwug.txt
+> add notwug.txt
+<<<
+> add notwug.txt
+<<<
+> commit "added wug/notwug"
+<<<
+> rm notwug.txt
+<<<
+> commit "remove notwug"
+<<<
+

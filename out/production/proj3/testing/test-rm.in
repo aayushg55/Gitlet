@@ -1,0 +1,11 @@
+# A simple test of adding, committing, modifying, and checking out.
+> init
+<<<
+E .gitlet
++ wug.txt wug.txt
+> add wug.txt
+<<<
+D h "No reason to remove the file."
+> rm notwug.txt
+${h}
+<<<*
